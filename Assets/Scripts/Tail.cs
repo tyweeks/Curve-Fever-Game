@@ -6,6 +6,7 @@ using System.Linq;
 public class Tail : MonoBehaviour
 {
     public float pointSpacing = .1f;
+    public Transform snake;
 
     List<Vector2> points;
 
@@ -24,7 +25,7 @@ public class Tail : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(points.Last(), transform.position) > pointSpacing)
+        if (Vector2.Distance(points.Last(), snake.position) > pointSpacing)
         {
             SetPoint();
         }
@@ -32,9 +33,9 @@ public class Tail : MonoBehaviour
 
     void SetPoint()
     {
-        points.Add(transform.position);
+        points.Add(snake.position);
 
         line.positionCount = points.Count;
-        line.SetPosition(points.Count - 1, transform.position);
+        line.SetPosition(points.Count - 1, snake.position);
     }
 }
