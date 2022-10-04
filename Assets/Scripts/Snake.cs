@@ -15,7 +15,12 @@ public class Snake : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(Vector2.up * speed * Time.fixedDeltaTime, Space.Self);
-        transform.Rotate(Vector3.forward * -horizontal * rotationSpeed * Time.fixedDeltaTime);
+        transform.Translate(speed * Time.fixedDeltaTime * Vector2.up, Space.Self);
+        transform.Rotate(-horizontal * rotationSpeed * Time.fixedDeltaTime * Vector3.forward);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
     }
 }
