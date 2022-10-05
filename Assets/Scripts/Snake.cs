@@ -5,12 +5,14 @@ public class Snake : MonoBehaviour
     public float speed = 3f;
     public float rotationSpeed = 200f;
 
+    public string inputAxis;
+
     private float horizontal = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw(inputAxis);
     }
 
     void FixedUpdate()
